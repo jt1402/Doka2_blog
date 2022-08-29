@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="TemplateMo" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap"
+      rel="stylesheet"
+    />
+
+    <title><%= pageTitle %></title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/fontawesome.css" />
+    <link rel="stylesheet" href="/css/templatemo-stand-blog.css" />
+    <link rel="stylesheet" href="/css/owl.css" />
+  </head>
+
+  <body>
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+      <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <!-- Header -->
+    <header><%- include("../includes/nav-header.ejs") %></header>
+
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+   
+    <div class="main-banner header-text">
+      <div class="container-fluid">
+        
+        <div class="owl-banner owl-carousel">
+          <% selectedPosts.slice(0,5).forEach(post => {%> 
+          <div class="item" style="width: 100%;
+          height: 100% !important;
+          object-fit: cover">
+            <div> 
+              <a href="/single-page/<%=post._id%>"><img src="<%=post.imageUrl%>" style="width:452px;height:280px" alt="" /></a> 
+            </div>
+            <div class="item-content">
+              <div class="main-content">
+                <div class="meta-category">
+                  <span></span>
+                </div>
+                <a href="/single-page/<%=post._id%>"
+                  ><h4><%=post.title%></h4></a
+                >
+                <ul class="post-info">
+                  <li><a href="#">Admin</a></li>
+                  <li><a href="#"><%= post.tag%></a></li> %> </a></li>
+                  <li><a href="#">12 Comments</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+    <!-- Banner Ends Here -->
+    <!--Main post starts -->
+    <div style="text-align: center; padding-top: 3rem; margin-bottom: -4rem; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+      <h1>Our latest Posts</h1>
+    </div>
+    <section class="blog-posts">
+      <div class="bolg-section">
+      <div class="container-fluid">    
+        <div class="row g-3 d-flex flex-row-reverse">
+          <div class="col-md-4">
+            <div class="sidebar">
+             <%- include("../includes/recent.ejs")  %> 
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="content">
+              <div class="col-md-12">
+                <div class="album  bg-light">
+                  <div class="container g-3">   
+                    <div class="row g-3">
+                    <% postList.forEach(post => {%>      
+                      <div class="col-sm-6 pb-4">
+                        <div class="card shadow-sm">
+                          <a href="/single-page/<%=post._id%>">
+                          <img
+                            class="bd-placeholder-img card-img-top"
+                            src="<%=post.imageUrl%> "
+                            width="100%"
+                            height="225"
+                          >
+                          </a>
+                            <title><%= post.title %></title>
+                            <rect width="100%" height="100%" fill="#55595c" />
+                            <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                             
+                            </text>
+                          </svg>
+          
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-md-9">
+                                <p style="font-size: 20px; color: black; font-weight: bold">
+                                  <%= post.title%> 
+                                </p>
+                              </div>
+                              <div class="col-md-3">
+                                <div>
+                                  <a class="" style="border: 1px solid #f59d44; border-radius: 5px; padding: 4px 6px; color: white; background: #f59d44;" href="/single-page/<%=post._id%> ">
+                                    View
+                                  </a>                                     
+                                </div>
+                              </div>
+                            </div>                        
+                         
+                         </div>
+                       </div>
+                            </div>
+                        <% }) %>
+                      </div>
+                    </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>            
+        </div>
+        </div>
+      </div>
+    </section>
+    <div>
+    <%- include('../includes/pagination.ejs', {currentPage: currentPage, nextPage: nextPage, previousPage: previousPage, lastPage: lastPage, hasNextPage: hasNextPage, hasPreviousPage: hasPreviousPage}) %>
+
+    </div>
+    
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <ul class="social-icons">
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Behance</a></li>
+              <li><a href="#">Linkedin</a></li>
+              <li><a href="#">Dribbble</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-12">
+            <div class="copyright-text">
+              <p>
+                Copyright 2020 Stand Blog Co. | Design:
+                <a rel="nofollow" href="https://templatemo.com" target="_parent"
+                  >TemplateMo</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/js/main.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Additional Scripts -->
+    <script src="js/custom.js"></script>
+    <script src="js/owl.js"></script>
+    <script src="js/slick.js"></script>
+    <script src="js/isotope.js"></script>
+    <script src="js/accordions.js"></script>
+
+    <script language="text/Javascript">
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t) {
+        //declaring the array outside of the
+        if (!cleared[t.id]) {
+          // function makes it static and global
+          cleared[t.id] = 1; // you could use true and false, but that's more typing
+          t.value = ""; // with more chance of typos
+          t.style.color = "#fff";
+        }
+      }
+    </script>
+  </body>
+</html>

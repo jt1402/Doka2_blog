@@ -1,0 +1,209 @@
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap");
+  .body {
+    margin-top: 20px;
+  }
+
+  .img-sm {
+    width: 46px;
+    height: 46px;
+  }
+
+  .panel {
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.075);
+    border-radius: 0;
+    border: 0;
+    margin-bottom: 15px;
+  }
+
+  .panel .panel-footer,
+  .panel > :last-child {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .panel .panel-heading,
+  .panel > :first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .panel-body {
+    padding: 25px 20px;
+  }
+
+  .media-block .media-left {
+    display: block;
+    float: left;
+  }
+
+  .media-block .media-right {
+    float: right;
+  }
+
+  .media-block .media-body {
+    display: block;
+    overflow: hidden;
+    width: auto;
+  }
+
+  .middle .media-left,
+  .middle .media-right,
+  .middle .media-body {
+    vertical-align: middle;
+  }
+
+  .thumbnail {
+    border-radius: 0;
+    border-color: #e9e9e9;
+  }
+
+  .tag.tag-sm,
+  .btn-group-sm > .tag {
+    padding: 5px 10px;
+  }
+
+  .tag:not(.label) {
+    background-color: #fff;
+    padding: 6px 12px;
+    border-radius: 2px;
+    border: 1px solid #cdd6e1;
+    font-size: 12px;
+    line-height: 1.42857;
+    vertical-align: middle;
+    -webkit-transition: all 0.15s;
+    transition: all 0.15s;
+  }
+  .text-muted,
+  a.text-muted:hover,
+  a.text-muted:focus {
+    color: #acacac;
+  }
+  .text-sm {
+    font-size: 0.9em;
+  }
+  .text-5x,
+  .text-4x,
+  .text-5x,
+  .text-2x,
+  .text-lg,
+  .text-sm,
+  .text-xs {
+    line-height: 1.25;
+  }
+
+  .btn-trans {
+    background-color: transparent;
+    border-color: transparent;
+    color: #929292;
+  }
+
+  .btn-icon {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
+  .btn-sm,
+  .btn-group-sm > .btn,
+  .btn-icon.btn-sm {
+    padding: 5px 10px !important;
+  }
+
+  .mar-top {
+    margin-top: 15px;
+  }
+
+  .card {
+    position: relative;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #d2d2dc;
+    border-radius: 11px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgb(249, 249, 250);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1);
+    box-shadow: 0px 0px 5px 0px rgb(161, 163, 164);
+  }
+
+  .media img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .reply a {
+    text-decoration: none;
+  }
+</style>
+<div class="container" style="padding: 1rem, 5rem">
+  <div class="card my-5">
+    <h4 class="card-header">Leave a Comment:</h4>
+    <div class="card-body">
+      <form method="POST">
+        <div class="form-group">
+          <textarea
+            name="comment"
+            class="form-control"
+            id=""
+            rows="5"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- single Comment -->
+
+<div class="container">
+  <div class="panel">
+    <div class="panel-body">
+      <!-- Newsfeed Content -->
+      <!--===================================================-->
+
+      <div class="media-block">
+
+        <% post.comments.forEach(comment => {%>
+        <div class="media-body pb-4">
+          <div class="mar-btm">
+            <a class="media-left" href="#"
+              ><img
+                class="img-circle img-sm"
+                alt="Profile Picture"
+                src="/images/user_image.jpg"
+            /></a>
+            <a href="#" class="btn-link text-semibold media-heading box-inline"
+              ><%= comment._id %></a
+            >
+          </div>
+          <p><%= comment.comment %></p>
+          <div class="pad-ver">
+            <div class="btn-group">
+              <a class="btn btn-sm btn-default btn-hover-success" href="#"
+                ><i class="fa fa-thumbs-up"></i
+              ></a>
+              <a class="btn btn-sm btn-default btn-hover-danger" href="#"
+                ><i class="fa fa-thumbs-down"></i
+              ></a>
+            </div>
+            <a class="btn btn-sm btn-default btn-hover-primary" href="#"
+              >Comment</a
+            >
+          </div>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--===================================================-->
+<!-- End Newsfeed Content -->
